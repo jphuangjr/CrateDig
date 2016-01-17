@@ -40,6 +40,15 @@ angular.module('boorish.ask', [])
     // $scope.deleteLink($scope.savedLinks[index].link_id)
   }
 
+  $scope.autofill2= function(index){
+    $scope.question.title = $scope.userLinks[index].title
+    $scope.question.tag = $scope.userLinks[index].tag
+    $scope.question.link = $scope.userLinks[index].url
+    $scope.question.text = $scope.userLinks[index].text
+    $scope.userLinks.splice(index, 1);
+    // $scope.deleteLink($scope.savedLinks[index].link_id)
+  }
+
   if (!Auth.isAuth()) {
     $location.path('/signin');
   } else {
